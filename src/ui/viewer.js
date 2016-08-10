@@ -96,6 +96,11 @@ var Viewer = exports.Viewer = Widget.extend({
             this.addField({
                 load: function (field, annotation) {
                     $(field).html(self.render(annotation));
+                    $("li#" + annotation.id + " .annotator-text").html(annotation.text);
+                    $("li#" + annotation.id + " .annotator-user-avatar").attr("src", annotation.userAvatar);
+                    $("li#" + annotation.id + " .annotator-user-identity").html(annotation.userIdentity);
+                    $("li#" + annotation.id + " .annotator-user-link").attr("href", "/author/" + annotation.user + "/" + annotation.userUrlIdentity);
+                    $("li#" + annotation.id + " .annotator-date").html(annotation.readableCreated);
                 }
             });
         }
@@ -233,7 +238,8 @@ var Viewer = exports.Viewer = Widget.extend({
     // Private: create the list item for a single annotation
     _annotationItem: function (annotation) {
         var item = $(this.itemTemplate).clone();
-
+        item.attr('id', annotation.id);
+        
         var controls = item.find('.annotator-controls'),
             link = controls.find('.annotator-link'),
             edit = controls.find('.annotator-edit'),
