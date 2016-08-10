@@ -85,18 +85,6 @@ var Viewer = exports.Viewer = Widget.extend({
 
         var self = this;
 
-        if (this.options.defaultFields) {
-            this.addField({
-                load: function (field, annotation) {
-                    $("li#" + annotation.id + " .annotator-text").html(annotation.text);
-                    $("li#" + annotation.id + " .annotator-user-avatar").attr("src", annotation.userAvatar);
-                    $("li#" + annotation.id + " .annotator-user-identity").html(annotation.userIdentity);
-                    $("li#" + annotation.id + " .annotator-user-link").attr("href", "/author/" + annotation.user + "/" + annotation.userUrlIdentity);
-                    $("li#" + annotation.id + " .annotator-date").html(annotation.readableCreated);
-                }
-            });
-        }
-
         if (typeof this.options.onEdit !== 'function') {
             throw new TypeError("onEdit callback must be a function");
         }
@@ -222,7 +210,12 @@ var Viewer = exports.Viewer = Widget.extend({
     _annotationItem: function (annotation) {
         var item = $(this.itemTemplate).clone();
         item.attr('id', annotation.id);
-        
+        item.find(".annotator-text").html(annotation.text);
+        item.find(".annotator-user-avatar").attr("src", annotation.userAvatar);
+        item.find(".annotator-user-identity").html(annotation.userIdentity);
+        item.find(".annotator-user-link").attr("href", "/author/" + annotation.user + "/" + annotation.userUrlIdentity);
+        item.find(".annotator-date").html(annotation.readableCreated);
+
         var controls = item.find('.annotator-controls'),
             link = controls.find('.annotator-link'),
             edit = controls.find('.annotator-edit'),
@@ -449,8 +442,8 @@ Viewer.template = [
 
 Viewer.itemTemplate = [
     '<li class="annotator-annotation annotator-item comment">',
-    '   <a class="avatar annotator-user-avatar" style="background-color: #B1C8F0">',
-    '       <img src="">',
+    '   <a class="avatar" style="background-color: #B1C8F0">',
+    '       <img class="annotator-user-avatar" src="">',
     '   </a>',
     '   <div class="content">',
     '       <a class="author annotator-user-identity"></a>',
