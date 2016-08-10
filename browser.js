@@ -4,6 +4,8 @@
 var insertCss = require('insert-css');
 var css = require('./css/annotator.css');
 insertCss(css);
+var css2 = require('./css/semantic.min.css');
+insertCss(css2);
 
 var app = require('./src/app');
 var util = require('./src/util');

@@ -232,8 +232,9 @@ var Editor = exports.Editor = Widget.extend({
         if (this.options.defaultFields) {
             this.addField({
                 type: 'textarea',
-                label: _t('Comments') + '\u2026',
+                label: _t('Commentaire') + '\u2026',
                 load: function (field, annotation) {
+                    $(field).find('textarea').attr('rows', '5');
                     $(field).find('textarea').val(annotation.text || '');
                 },
                 submit: function (field, annotation) {
@@ -560,21 +561,25 @@ var Editor = exports.Editor = Widget.extend({
 
 // Classes to toggle state.
 Editor.classes = {
-    hide: 'annotator-hide',
+    show: 'active',
     focus: 'annotator-focus'
 };
 
 // HTML template for this.element.
 Editor.template = [
-    '<div class="annotator-outer annotator-editor annotator-hide">',
-    '  <form class="annotator-widget">',
-    '    <ul class="annotator-listing"></ul>',
-    '    <div class="annotator-controls">',
-    '     <a href="#cancel" class="annotator-cancel">' + _t('Cancel') + '</a>',
-    '      <a href="#save"',
-    '         class="annotator-save annotator-focus">' + _t('Save') + '</a>',
-    '    </div>',
-    '  </form>',
+    '<div class="annotator-outer annotator-editor">',
+    '   <div class="ui modal small" style="position: relative; margin: 0">',
+    '       <div class="header">Annotation</div>',
+    '       <div class="content">',
+    '           <form class="ui form annotator-widget">',
+    '               <ul class="annotator-listing"></ul>',
+    '               <div class="annotator-controls actions">',
+    '                   <a href="#save" class="annotator-save annotator-focus ui right floated approve primary button">Ok</a>',
+    '                   <a href="#cancel" class="annotator-cancel annotator-focus ui cancel right floated button">Annuler</a>',
+    '               </div>',
+    '           </form>',
+    '       </div>',
+    '   </div>',
     '</div>'
 ].join('\n');
 

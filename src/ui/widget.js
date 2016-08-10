@@ -55,8 +55,10 @@ Widget.prototype.attach = function () {
 //
 // Returns nothing.
 Widget.prototype.show = function () {
-    this.element.removeClass(this.classes.hide);
-
+    if (this.classes.show)
+        this.element.find('.modal').addClass(this.classes.show);
+    else
+        this.element.removeClass(this.classes.hide);
     // invert if necessary
     this.checkOrientation();
 };
@@ -65,7 +67,10 @@ Widget.prototype.show = function () {
 //
 // Returns nothing.
 Widget.prototype.hide = function () {
-    $(this.element).addClass(this.classes.hide);
+    if (this.classes.show)
+        $(this.element).find('.modal').removeClass(this.classes.show);
+    else
+        $(this.element).addClass(this.classes.hide)    
 };
 
 // Public: Returns true if the widget is currently displayed, false otherwise.
@@ -80,7 +85,10 @@ Widget.prototype.hide = function () {
 //
 // Returns true if the widget is visible.
 Widget.prototype.isShown = function () {
-    return !$(this.element).hasClass(this.classes.hide);
+    if (this.classes.show)
+        return $(this.element).find('.modal').hasClass(this.classes.show)
+    else
+        return !$(this.element).hasClass(this.classes.hide);
 };
 
 Widget.prototype.checkOrientation = function () {

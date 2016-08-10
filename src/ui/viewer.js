@@ -442,29 +442,38 @@ var Viewer = exports.Viewer = Widget.extend({
 
 // Classes for toggling annotator state.
 Viewer.classes = {
+    show: 'active',
     showControls: 'annotator-visible'
 };
 
 // HTML templates for this.widget and this.item properties.
 Viewer.template = [
-    '<div class="annotator-outer annotator-viewer annotator-hide">',
-    '  <ul class="annotator-widget annotator-listing"></ul>',
+    '<div class="annotator-outer annotator-viewer">',
+    '   <div class="ui modal small" style="position: relative; margin: 0">',
+    '       <div class="header">Annotation</div>',
+    '       <div class="content">',
+    '           <ul class="annotator-widget annotator-listing ui comments"></ul>',
+    '       </div>',
+    '   </div>',
     '</div>'
 ].join('\n');
 
 Viewer.itemTemplate = [
-    '<li class="annotator-annotation annotator-item">',
-    '  <span class="annotator-controls">',
-    '    <a href="#"',
-    '       title="' + _t('View as webpage') + '"',
-    '       class="annotator-link">' + _t('View as webpage') + '</a>',
-    '    <button type="button"',
-    '            title="' + _t('Edit') + '"',
-    '            class="annotator-edit">' + _t('Edit') + '</button>',
-    '    <button type="button"',
-    '            title="' + _t('Delete') + '"',
-    '            class="annotator-delete">' + _t('Delete') + '</button>',
-    '  </span>',
+    '<li class="annotator-annotation annotator-item comment">',
+    '   <a class="avatar annotator-user-avatar" style="background-color: #B1C8F0">',
+    '       <img src="">',
+    '   </a>',
+    '   <div class="content">',
+    '       <a class="author annotator-user-identity"></a>',
+    '       <div class="metadata">',
+    '           <span class="date annotator-date"></span>',
+    '       </div>',
+    '       <div class="text annotator-text"></div>',
+    '       <div class="annotator-controls actions">',
+    '       	<button type="button" title="Modifier" class="annotator-edit ui right floated button">Modifier</button>',
+    '       	<button type="button" title="Supprimer" class="annotator-delete ui right floated button red">Supprimer</button>',
+    '       </div>',
+    '   </div>',
     '</li>'
 ].join('\n');
 
