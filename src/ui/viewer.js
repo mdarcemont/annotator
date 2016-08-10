@@ -82,20 +82,12 @@ var Viewer = exports.Viewer = Widget.extend({
         this.hideTimerDfd = null;
         this.hideTimerActivity = null;
         this.mouseDown = false;
-        this.render = function (annotation) {
-            if (annotation.text) {
-                return util.escapeHtml(annotation.text);
-            } else {
-                return "<i>" + _t('No comment') + "</i>";
-            }
-        };
 
         var self = this;
 
         if (this.options.defaultFields) {
             this.addField({
                 load: function (field, annotation) {
-                    $(field).html(self.render(annotation));
                     $("li#" + annotation.id + " .annotator-text").html(annotation.text);
                     $("li#" + annotation.id + " .annotator-user-avatar").attr("src", annotation.userAvatar);
                     $("li#" + annotation.id + " .annotator-user-identity").html(annotation.userIdentity);
@@ -224,15 +216,6 @@ var Viewer = exports.Viewer = Widget.extend({
         }
 
         this.show(position);
-    },
-
-    // Public: Set the annotation renderer.
-    //
-    // renderer - A function that accepts an annotation and returns HTML.
-    //
-    // Returns nothing.
-    setRenderer: function (renderer) {
-        this.render = renderer;
     },
 
     // Private: create the list item for a single annotation
