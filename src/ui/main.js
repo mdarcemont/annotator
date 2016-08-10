@@ -157,20 +157,6 @@ function addPermissionsCheckboxes(editor, ident, authz) {
             }
         };
     }
-
-    editor.addField({
-        type: 'checkbox',
-        label: _t('Allow anyone to <strong>view</strong> this annotation'),
-        load: createLoadCallback('read'),
-        submit: createSubmitCallback('read')
-    });
-
-    editor.addField({
-        type: 'checkbox',
-        label: _t('Allow anyone to <strong>edit</strong> this annotation'),
-        load: createLoadCallback('update'),
-        submit: createSubmitCallback('update')
-    });
 }
 
 
