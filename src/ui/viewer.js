@@ -434,7 +434,7 @@ Viewer.template = [
     '   <div class="ui modal small" style="position: relative; margin: 0">',
     '       <div class="header">Annotation</div>',
     '       <div class="content">',
-    '           <ul class="annotator-widget annotator-listing ui comments"></ul>',
+    '           <ul class="annotator-widget annotator-listing ui comments" style="position: relative"></ul>',
     '       </div>',
     '   </div>',
     '</div>'
