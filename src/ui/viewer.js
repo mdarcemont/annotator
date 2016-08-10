@@ -452,8 +452,8 @@ Viewer.itemTemplate = [
     '       </div>',
     '       <div class="text annotator-text"></div>',
     '       <div class="annotator-controls actions">',
-    '       	<button type="button" title="Modifier" class="annotator-edit ui right floated button">Modifier</button>',
     '       	<button type="button" title="Supprimer" class="annotator-delete ui right floated button red">Supprimer</button>',
+    '       	<button type="button" title="Modifier" class="annotator-edit ui right floated button">Modifier</button>',
     '       </div>',
     '   </div>',
     '</li>'
