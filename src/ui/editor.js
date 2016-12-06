@@ -569,11 +569,10 @@ Editor.classes = {
 Editor.template = [
     '<div class="annotator-outer annotator-editor">',
     '   <div class="ui modal small" style="position: relative; margin: 0">',
-    '       <div class="header">Annotation</div>',
     '       <div class="content">',
     '           <form class="ui form annotator-widget">',
-    '               <ul class="annotator-listing"></ul>',
-    '               <div class="annotator-controls actions">',
+    '               <ul class="annotator-listing" style="width: 100%"></ul>',
+    '               <div class="annotator-controls actions" style="position: relative; padding-top: 10px">',
     '                   <a href="#save" class="annotator-save annotator-focus ui right floated approve primary button">Ok</a>',
     '                   <a href="#cancel" class="annotator-cancel annotator-focus ui cancel right floated button">Annuler</a>',
     '               </div>',
