@@ -320,13 +320,7 @@ var Viewer = exports.Viewer = Widget.extend({
     //
     // Returns nothing.
     _onDeleteClick: function (event) {
-        if (window.confirm(_t('Delete this annotation?'))) {
-            var item = $(event.target)
-                .parents('.annotator-annotation')
-                .data('annotation');
-            this.hide();
-            this.options.onDelete(item);
-        }
+        this.options.onDelete(item);
     },
 
     // Event callback: called when a user triggers `mouseover` on a highlight
