@@ -431,7 +431,7 @@ Viewer.classes = {
 // HTML templates for this.widget and this.item properties.
 Viewer.template = [
     '<div class="annotator-outer annotator-viewer">',
-    '   <div class="ui modal small" style="position: relative; margin: 0">',
+    '   <div class="ui mini modal" style="position: relative; margin: 0">',
     '       <div class="content">',
     '           <ul class="annotator-widget annotator-listing ui comments" style="position: relative; width: 90%"></ul>',
     '       </div>',

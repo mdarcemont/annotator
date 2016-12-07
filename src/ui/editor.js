@@ -568,7 +568,7 @@ Editor.classes = {
 // HTML template for this.element.
 Editor.template = [
     '<div class="annotator-outer annotator-editor">',
-    '   <div class="ui modal small" style="position: relative; margin: 0">',
+    '   <div class="ui mini modal" style="position: relative; margin: 0">',
     '       <div class="content">',
     '           <form class="ui form annotator-widget">',
     '               <ul class="annotator-listing" style="width: 100%"></ul>',
