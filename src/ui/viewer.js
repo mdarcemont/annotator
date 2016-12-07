@@ -324,6 +324,7 @@ var Viewer = exports.Viewer = Widget.extend({
           .parents('.annotator-annotation')
           .data('annotation');
         this.options.onDelete(item);
+        $(event.target).parents('.modal').removeClass(this.classes.show);
     },
 
     // Event callback: called when a user triggers `mouseover` on a highlight
