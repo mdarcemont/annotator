@@ -320,6 +320,9 @@ var Viewer = exports.Viewer = Widget.extend({
     //
     // Returns nothing.
     _onDeleteClick: function (event) {
+        var item = $(event.target)
+          .parents('.annotator-annotation')
+          .data('annotation');
         this.options.onDelete(item);
     },
 
