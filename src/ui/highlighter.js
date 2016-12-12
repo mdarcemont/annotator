@@ -152,8 +152,8 @@ Highlighter.prototype.draw = function (annotation) {
         if (annotation.category) {
           console.log('category ' + annotation.category);
           console.log(annotation);
-          for (var k = 0; k < annotation.allCategories.length; k++) {
-            var cat = annotation.allCategories[k];
+          for (var k = 0; k < this.options.allCategories.length; k++) {
+            var cat = this.options.allCategories[k];
               console.log('cat ' + cat.name);
             if (cat.name === annotation.category) {
               console.log('cat found');
@@ -219,7 +219,12 @@ Highlighter.options = {
     // Number of annotations to draw at once
     chunkSize: 10,
     // Time (in ms) to pause between drawing chunks of annotations
-    chunkDelay: 10
+    chunkDelay: 10,
+    allCategories: [
+      { name: 'Intrigue & Idées', catClass: 'annotator-category-1' },
+      { name: 'Style', catClass: 'annotator-category-2' },
+      { name: 'Ortho. & Grammaire', catClass: 'annotator-category-3' }
+    ]
 };
 
 
