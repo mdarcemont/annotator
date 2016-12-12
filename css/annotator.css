@@ -13,6 +13,7 @@
 	background: #FFFF0A;
 	background: rgba(255, 255, 10, 0.3);
 	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#4DFFFF0A, endColorstr=#4DFFFF0A)";  /* 0.3 == 4D in MS filters */
+	cursor: pointer;
 }
 
 .annotator-hl-temporary {
@@ -85,7 +86,7 @@
 }
 
 /* Annotator Widget
-   
+
    This applies to both the Viewer and the Editor
 -------------------------------------------------------------------- */
 
@@ -111,7 +112,7 @@
 .annotator-widget .annotator-listing,
 .annotator-widget .annotator-item {
 	padding: 0;
-	margin: 0;
+	margin: 10px 0px 0px 0px;
 	list-style: none;
 }
 
@@ -150,4 +151,45 @@
 
 .annotator-hl-filtered {
 	background-color: transparent;
+}
+
+.annotation-categories {
+    margin-top: 10px;
+}
+
+.annotator-category {
+    padding: 7px;
+    margin: 1px 1px 0px;
+    -webkit-border-radius: 6px 6px 6px 6px;
+    -moz-border-radius: 6px 6px 6px 6px;
+    border-radius: 6px 6px 6px 6px;
+    color: black;
+    display: inline-block;
+    background-color: rgba(255, 255, 10, .3);
+    font-weight: normal;
+}
+
+.annotator-category-none {
+
+}
+
+/* For different color categories, set different color values here */
+/* normal */
+.annotator-category-0 {
+    background-color: rgba(22,147,165, .2);
+}
+
+/* Ortho */
+.annotator-category-1 {
+    background-color: rgba(255, 143, 0, 0.3);
+}
+
+/* Intrigue */
+.annotator-category-2 {
+    background-color: rgba(0, 155, 0, 0.2);
+}
+
+/* Style */
+.annotator-category-3 {
+    background-color: rgba(255, 255, 10, 0.3);
 }

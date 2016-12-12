@@ -292,6 +292,11 @@ var Editor = exports.Editor = Widget.extend({
             .find('.annotator-save')
             .addClass(this.classes.focus);
 
+        var selectCategory = this.element.find('select');
+        if(selectCategory && !selectCategory.val()) {
+          selectCategory.val(selectCategory.find('option').val());
+        }
+
         Widget.prototype.show.call(this);
 
         // give main textarea focus
@@ -426,14 +431,35 @@ var Editor = exports.Editor = Widget.extend({
             input = $('<input />');
         } else if (field.type === 'select') {
             input = $('<select />');
+            for (var i = 0; i < field.options.length; i++) {
+              var params;
+              if(i == 0) {
+                params = { value: field.options[i], text: field.options[i] };
+              } else {
+                params = { value: field.options[i], text: field.options[i] };
+              }
+              $("<option />", params).appendTo(input);
+            }
         }
 
         element.append(input);
 
-        input.attr({
-            id: field.id,
-            placeholder: field.label
-        });
+        if (field.type === 'select') {
+          input.attr({
+              id: field.id,
+              style: 'margin-top: 5px'
+          });
+          element.prepend($('<label />', {
+              'for': field.id,
+              'html': field.label,
+              'style': 'font-weight: bold; margin-top: 10px'
+          }));
+        } else {
+          input.attr({
+              id: field.id,
+              placeholder: field.label
+          });
+        }
 
         if (field.type === 'checkbox') {
             element.addClass('annotator-checkbox');

@@ -102,7 +102,7 @@ var Viewer = exports.Viewer = Widget.extend({
             this.document = this.options.autoViewHighlights.ownerDocument;
 
             $(this.options.autoViewHighlights)
-                .on("mouseover." + NS, '.annotator-hl', function (event) {
+                .on("mousedown." + NS, '.annotator-hl', function (event) {
                     // If there are many overlapping highlights, still only
                     // call _onHighlightMouseover once.
                     if (event.target === this) {
