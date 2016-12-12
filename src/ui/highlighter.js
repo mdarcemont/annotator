@@ -150,13 +150,9 @@ Highlighter.prototype.draw = function (annotation) {
 
         var highlightClass = this.options.highlightClass;
         if (annotation.category) {
-          console.log('category ' + annotation.category);
-          console.log(annotation);
           for (var k = 0; k < this.options.allCategories.length; k++) {
             var cat = this.options.allCategories[k];
-              console.log('cat ' + cat.name);
             if (cat.name === annotation.category) {
-              console.log('cat found');
               highlightClass = highlightClass + ' ' + cat.catClass;
             }
           }
