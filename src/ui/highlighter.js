@@ -151,6 +151,7 @@ Highlighter.prototype.draw = function (annotation) {
         var highlightClass = this.options.highlightClass;
         if (annotation.category) {
           console.log('category ' + annotation.category);
+          console.log(annotation);
           for (var k = 0; k < annotation.allCategories.length; k++) {
             var cat = annotation.allCategories[k];
               console.log('cat ' + cat.name);
