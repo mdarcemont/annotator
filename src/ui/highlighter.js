@@ -147,9 +147,22 @@ Highlighter.prototype.draw = function (annotation) {
 
     for (var j = 0, jlen = normedRanges.length; j < jlen; j++) {
         var normed = normedRanges[j];
+
+        var highlightClass = this.options.highlightClass;
+        if (annotation.category) {
+          console.log('category ' + annotation.category);
+          for (var k = 0; k < annotation.allCategories.length; k++) {
+            var cat = annotation.allCategories[k];
+              console.log('cat ' + cat.name);
+            if (cat.name === annotation.category) {
+              console.log('cat found');
+              highlightClass = highlightClass + ' ' + cat.catClass;
+            }
+          }
+        }
         $.merge(
             annotation._local.highlights,
-            highlightRange(normed, this.options.highlightClass)
+            highlightRange(normed, highlightClass)
         );
     }
 
