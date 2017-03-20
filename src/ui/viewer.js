@@ -428,17 +428,17 @@ Viewer.classes = {
 
 // HTML templates for this.widget and this.item properties.
 Viewer.template = [
-    '<div class="annotator-outer annotator-viewer">',
+    '<ul class="annotator-outer annotator-viewer">',
     '   <div class="ui mini modal" style="position: relative; margin: 0">',
     '       <div class="content">',
     '           <div class="annotator-widget annotator-listing ui comments" style="position: relative; width: 90%"></div>',
     '       </div>',
     '   </div>',
-    '</div>'
+    '</ul>'
 ].join('\n');
 
 Viewer.itemTemplate = [
-    '<div class="annotator-annotation annotator-item comment">',
+    '<li class="annotator-annotation annotator-item comment">',
     '   <a class="avatar" style="background-color: #B1C8F0">',
     '       <img class="annotator-user-avatar" src="">',
     '   </a>',
@@ -453,7 +453,7 @@ Viewer.itemTemplate = [
     '       	<button type="button" title="Modifier" class="annotator-edit ui mini compact right floated button">Modifier</button>',
     '       </div>',
     '   </div>',
-    '</div>'
+    '</li>'
 ].join('\n');
 
 // Configuration options
