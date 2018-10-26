@@ -90,7 +90,7 @@ AclAuthzPolicy.prototype.permits = function (action, context, identity) {
     }
 
     // No authorization info on context: free-for-all!
-    return true;
+    return false;
 };
 
 
